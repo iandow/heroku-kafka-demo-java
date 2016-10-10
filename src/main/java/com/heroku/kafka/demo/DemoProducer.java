@@ -46,7 +46,23 @@ public class DemoProducer implements Managed {
   }
 
   public Future<RecordMetadata> send(String message) {
-    return producer.send(new ProducerRecord<>(config.getTopic(), message, message));
+    LOG.info("Producer sending message: " + message);
+    Future<RecordMetadata> future = producer.send(new ProducerRecord<>(config.getTopic(), message, message),
+            new Callback() {
+              public void onCompletion(RecordMetadata metadata, Exception e) {
+                LOG.info("\tSent: '%s'\n" +
+                                "\t\ttopic = %s\n" +
+                                "\t\tpartition = %d\n" +
+                                "\t\toffset = %d\n",
+                        message,
+                        metadata.topic(),
+                        metadata.partition(),
+                        metadata.offset());
+              }
+
+            });
+
+    return future;
   }
 
   public void stop() throws Exception {
