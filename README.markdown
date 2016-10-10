@@ -3,7 +3,7 @@
 A simple heroku app that demonstrates using Kafka in java.
 This demo app accepts HTTP POST requests and writes them to a topic, and has a simple page that shows the last 10 messages produced to that topic. That web page looks like this:
 
-![webui](webui.png)
+![webui](https://github.com/iandow/heroku-kafka-demo-java/blob/master/images/webui.png)
 
 You'll need to [provision](#provisioning) the app.
 
