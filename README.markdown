@@ -7,7 +7,7 @@ This demo app accepts HTTP POST requests and writes them to a topic, and has a s
 
 You'll need to [provision](#provisioning) the app.
 
-## Provisioning on Heroku
+## Provisioning with Heroku
 
 First set your APP NAME
 
@@ -48,7 +48,7 @@ $ git push heroku master
 $ heroku open
 ```
 
-## Provisioning on your laptop
+## How to run this app without Heroku
 
 If you already have a Kafka cluster, you can also run this app on your 
 laptop. Here's how to do that:
